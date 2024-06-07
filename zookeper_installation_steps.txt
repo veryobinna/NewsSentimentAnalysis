@@ -1,0 +1,20 @@
+wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz
+tar -xzf zookeeper-3.4.14.tar.gz
+cd zookeeper-3.4.14/conf
+cp zoo_sample.cfg zoo.cfg
+
+vi zoo.cfg
+change the 
+dataDir=/var/zookeeper
+add to the bottom of the file
+server.0=127.0.0.1:2888:3888
+
+sudo mkdir /var/zookeeper
+
+sudo chown kingobiorah:kingobiorah /var/zookeeper
+
+Then create a myid file and add 0 (the server number we added to the zookeeper conf)
+vi /var/zookeeper/myid
+CD to the zookeeper folder and start zookeeper
+cd ..
+bin/zkServer.sh start

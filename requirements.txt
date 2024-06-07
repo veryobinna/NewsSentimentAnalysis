@@ -1,0 +1,5 @@
+kafka-python
+requests
+textblob
+
+python -m textblob.download_corpora

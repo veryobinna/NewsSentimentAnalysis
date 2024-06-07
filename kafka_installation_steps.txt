@@ -1,0 +1,25 @@
+wget https://packages.confluent.io/archive/4.1/confluent-4.1.4-2.11.tar.gz
+
+-- or alternatively
+
+wget https://www.dropbox.com/s/vb09hq3oikwy7dn/confluent-4.1.4-2.11.tar
+
+
+tar -xzf confluent-4.1.4-2.11.tar.gz 
+
+ cd confluent-4.1.4/
+
+
+Ensure broker.id = 0  
+vi etc/kafka/server.properties
+
+Enure dataDir = /var/zookeeper
+vi etc/kafka/zookeeper.properties
+
+start without logs
+nohup bin/kafka-server-start etc/kafka/server.properties > /dev/null 2>&1 &
+
+
+start with logs
+bin/kafka-server-start etc/kafka/server.properties
+
